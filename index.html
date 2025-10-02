@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORMATURA25</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #f5d76e;
+      background: radial-gradient(circle at top, #1a1a1a, #000);
+      overflow-x: hidden;
+    }
+
+    /* Fundo cósmico dourado */
+    body::before {
+      content: "";
+      position: fixed;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(245,215,110,0.15) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: moveStars 20s linear infinite;
+      z-index: -1;
+    }
+    @keyframes moveStars {
+      from { transform: translate(0,0); }
+      to { transform: translate(-60px,-60px); }
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 2.5em;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-shadow: 0 0 20px #d4af37, 0 0 40px #b8860b;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid #d4af37;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(212,175,55,0.6);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      color: #ffd700;
+      text-shadow: 0 0 10px #b8860b;
+    }
+
+    p {
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .galeria div {
+      position: relative;
+    }
+
+    .galeria img, .galeria video {
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #ffd700;
+      box-shadow: 0 0 15px rgba(255,215,0,0.4);
+    }
+
+    .remove-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .assinaturas {
+      margin-top: 20px;
+    }
+
+    .assinaturas input {
+      width: 70%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .assinaturas button {
+      padding: 10px 20px;
+      background: #d4af37;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .assinaturas button:hover {
+      background: #ffd700;
+      box-shadow: 0 0 15px #ffd700;
+    }
+
+    #lista-assinaturas {
+      margin-top: 20px;
+      font-style: italic;
+      color: #fff;
+    }
+
+    .pix {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .pix button {
+      padding: 15px 30px;
+      background: #000;
+      color: #ffd700;
+      border: 2px solid #ffd700;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .pix button:hover {
+      background: #ffd700;
+      color: #000;
+      box-shadow: 0 0 20px #ffd700;
+    }
+  </style>
+</head>
+<body>
+  <header>🎓 Eu passei por esta jornada 🎓</header>
+
+  <section>
+    <h2>Minha História</h2>
+    <p>
+      Foram anos de aprendizado, desafios e conquistas.  
+      Cada prova, cada risada, cada amigo, cada momento fez parte desta caminhada até a formatura.  
+      Este espaço é para guardar não só a lembrança, mas também as emoções que viveram junto comigo.
+    </p>
+  </section>
+
+  <section>
+    <h2>Mensagem Memorável</h2>
+    <p>
+      "O futuro pertence àqueles que acreditam na beleza de seus sonhos."  
+      — Este é apenas o começo de uma nova etapa!
+    </p>
+  </section>
+
+  <section>
+    <h2>Memórias do Dia</h2>
+    <p>Anexe fotos ou vídeos da formatura!</p>
+    
+    <input type="file" id="memoria" multiple accept="image/*,video/*">
+    <button onclick="salvarMemorias()">Salvar Memórias</button>
+
+    <div class="galeria" id="preview"></div>
+  </section>
+
+  <section>
+    <h2>Deixe sua Assinatura</h2>
+    <div class="assinaturas">
+      <input type="text" id="nome" placeholder="Digite seu nome">
+      <button onclick="adicionarAssinatura()">Assinar</button>
+      <div id="lista-assinaturas"></div>
+    </div>
+  </section>
+
+  <section class="pix">
+    <h2>💛 Apoie com um Pix 💛</h2>
+    <p>Se quiser, você pode mandar um Pix para a chave:</p>
+    <p><strong>145.944.939-80</strong></p>
+    <button onclick="copiarPix()">Copiar Chave Pix</button>
+  </section>
+
+  <script>
+    // ----- ASSINATURAS -----
+    function adicionarAssinatura() {
+      const nome = document.getElementById('nome').value;
+      if(nome.trim() !== "") {
+        const lista = document.getElementById('lista-assinaturas');
+        const item = document.createElement('p');
+        item.textContent = "✍️ " + nome;
+        lista.appendChild(item);
+        document.getElementById('nome').value = "";
+      }
+    }
+
+    // ----- PIX -----
+    function copiarPix() {
+      navigator.clipboard.writeText("145.944.939-80").then(() => {
+        alert("Chave Pix copiada!");
+      });
+    }
+
+    // ----- MEMÓRIAS DO DIA -----
+    const memoriaInput = document.getElementById('memoria');
+    const preview = document.getElementById('preview');
+
+    window.onload = function() {
+      const salvas = JSON.parse(localStorage.getItem('memorias')) || [];
+      salvas.forEach((item, index) => {
+        exibirMemoria(item.url, item.type, index);
+      });
+    };
+
+    function salvarMemorias() {
+      const arquivos = Array.from(memoriaInput.files);
+      let salvas = JSON.parse(localStorage.getItem('memorias')) || [];
+
+      arquivos.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const obj = { url: e.target.result, type: file.type };
+          salvas.push(obj);
+          localStorage.setItem('memorias', JSON.stringify(salvas));
+          exibirMemoria(obj.url, obj.type, salvas.length - 1);
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function exibirMemoria(url, type, index) {
+      const container = document.createElement("div");
+      let element;
+
+      if (type.startsWith("image/")) {
+        element = document.createElement("img");
+        element.src = url;
+      } else if (type.startsWith("video/")) {
+        element = document.createElement("video");
+        element.src = url;
+        element.controls = true;
+      }
+
+      const removeBtn = document.createElement("button");
+      removeBtn.textContent = "×";
+      removeBtn.className = "remove-btn";
+      removeBtn.onclick = function() { removerMemoria(index); };
+
+      container.appendChild(element);
+      container.appendChild(removeBtn);
+      preview.appendChild(container);
+    }
+
+    function removerMemoria(index) {
+      let salvas = JSON.parse(localStorage.getItem('memorias')) || [];
+      salvas.splice(index, 1);
+      localStorage.setItem('memorias', JSON.stringify(salvas));
+      preview.innerHTML = "";
+      salvas.forEach((item, i) => {
+        exibirMemoria(item.url, item.type, i);
+      });
+    }
+  </script>
+</body>
+</html>
