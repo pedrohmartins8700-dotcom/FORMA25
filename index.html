@@ -1,233 +1,184 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>FORMATURA25</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      color: #f5d76e;
-      background: radial-gradient(circle at top, #1a1a1a, #000);
-      overflow-x: hidden;
-    }
-
-    /* Fundo cósmico dourado */
-    body::before {
-      content: "";
-      position: fixed;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(245,215,110,0.15) 1px, transparent 1px);
-      background-size: 60px 60px;
-      animation: moveStars 20s linear infinite;
-      z-index: -1;
-    }
-    @keyframes moveStars {
-      from { transform: translate(0,0); }
-      to { transform: translate(-60px,-60px); }
-    }
-
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      font-size: 2.5em;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-shadow: 0 0 20px #d4af37, 0 0 40px #b8860b;
-    }
-
-    section {
-      max-width: 900px;
-      margin: 50px auto;
-      padding: 30px;
-      background: rgba(0, 0, 0, 0.6);
-      border: 2px solid #d4af37;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(212,175,55,0.6);
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 1.8em;
-      color: #ffd700;
-      text-shadow: 0 0 10px #b8860b;
-    }
-
-    p {
-      line-height: 1.6;
-      text-align: justify;
-    }
-
-    .galeria {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .galeria img, .galeria video {
-      width: 100%;
-      border-radius: 10px;
-      border: 2px solid #ffd700;
-      box-shadow: 0 0 15px rgba(255,215,0,0.4);
-    }
-
-    .assinaturas {
-      margin-top: 20px;
-    }
-
-    .assinaturas input {
-      width: 70%;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      margin-right: 10px;
-    }
-
-    .assinaturas button {
-      padding: 10px 20px;
-      background: #d4af37;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .assinaturas button:hover {
-      background: #ffd700;
-      box-shadow: 0 0 15px #ffd700;
-    }
-
-    #lista-assinaturas {
-      margin-top: 20px;
-      font-style: italic;
-      color: #fff;
-    }
-
-    .pix {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    .pix button {
-      padding: 15px 30px;
-      background: #000;
-      color: #ffd700;
-      border: 2px solid #ffd700;
-      border-radius: 10px;
-      font-size: 1.2em;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .pix button:hover {
-      background: #ffd700;
-      color: #000;
-      box-shadow: 0 0 20px #ffd700;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>FORMATURA25</title>
+<style>
+  body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0b0b0b;
+    color:#f5f5f5;
+  }
+  header{
+    text-align:center;
+    padding:20px;
+    background:#111;
+    color:#d4af37;
+  }
+  h2{color:#d4af37}
+  .section{
+    max-width:800px;
+    margin:20px auto;
+    padding:20px;
+    background:#1a1a1a;
+    border-radius:10px;
+  }
+  .btn{
+    padding:8px 12px;
+    margin:5px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+  }
+  .btn-primary{background:#d4af37;color:#111;}
+  .btn-secondary{background:transparent;color:#d4af37;border:1px solid #d4af37;}
+  .upload-item{
+    margin:10px 0;
+    padding:10px;
+    background:#222;
+    border-radius:8px;
+  }
+  .upload-item video,.upload-item img{
+    max-width:100%;
+    border-radius:6px;
+    margin-bottom:8px;
+  }
+  .remove-btn{
+    background:#ff5555;
+    color:#fff;
+    border:none;
+    padding:6px 10px;
+    border-radius:5px;
+    cursor:pointer;
+  }
+</style>
 </head>
 <body>
-  <header>🎓 Eu passei por esta jornada 🎓</header>
+  <header>
+    <h1>FORMATURA25</h1>
+    <p>Preto & Dourado</p>
+  </header>
 
-  <section>
-    <h2>Minha História</h2>
-    <p>
-      Foram anos de aprendizado, desafios e conquistas.  
-      Cada prova, cada risada, cada amigo, cada momento fez parte desta caminhada até a formatura.  
-      Este espaço é para guardar não só a lembrança, mas também as emoções que viveram junto comigo.
-    </p>
+  <!-- História -->
+  <section class="section">
+    <h2>História</h2>
+    <p><strong>Hoje, finalizo uma jornada…</strong><br>
+    Hoje, finalizo uma jornada repleta de aprendizado, encontros e desafios que me transformaram. Agradeço a cada pessoa que esteve ao meu lado — presente ou em pensamento. Este dia marca o começo de novos caminhos.</p>
   </section>
 
-  <section>
-    <h2>Mensagem Memorável</h2>
-    <p>
-      "O futuro pertence àqueles que acreditam na beleza de seus sonhos."  
-      — Este é apenas o começo de uma nova etapa!
-    </p>
-  </section>
-
-  <section>
+  <!-- Memórias -->
+  <section class="section">
     <h2>Memórias do Dia</h2>
-    <p>Anexe fotos ou vídeos da formatura e, se quiser, envie para o WhatsApp!</p>
-    
-    <!-- Upload -->
-    <input type="file" id="memoria" multiple accept="image/*,video/*">
-    <button onclick="enviarWhatsApp()">Enviar para o WhatsApp</button>
+    <p>Coloque suas fotos ou vídeos que fez no dia da formatura aqui!</p>
+    <button class="btn btn-secondary" id="addFileBtn">Adicione seu Arquivo</button>
+    <input type="file" id="fileInput" accept="image/*,video/*" style="display:none">
 
-    <!-- Pré-visualização -->
-    <div class="galeria" id="preview"></div>
-  </section>
-
-  <section>
-    <h2>Deixe sua Assinatura</h2>
-    <div class="assinaturas">
-      <input type="text" id="nome" placeholder="Digite seu nome">
-      <button onclick="adicionarAssinatura()">Assinar</button>
-      <div id="lista-assinaturas"></div>
+    <button class="btn btn-secondary" id="addMsgBtn">Adicionar Mensagem de Vida</button>
+    <div id="msgBox" style="display:none;margin-top:10px;">
+      <textarea id="msgText" rows="4" style="width:100%;"></textarea><br>
+      <button class="btn btn-primary" id="postMsgBtn">Postar</button>
     </div>
+
+    <div id="uploads"></div>
   </section>
 
-  <section class="pix">
-    <h2>💛 Apoie com um Pix 💛</h2>
-    <p>Se quiser, você pode mandar um Pix para a chave:</p>
-    <p><strong>145.944.939-80</strong></p>
-    <button onclick="copiarPix()">Copiar Chave Pix</button>
+  <!-- Assinatura -->
+  <section class="section">
+    <h2>Assinatura</h2>
+    <input type="text" id="fullName" placeholder="Seu nome completo" style="width:100%;padding:8px"><br><br>
+    <canvas id="sigCanvas" width="300" height="120" style="background:#fff;border-radius:6px;"></canvas><br>
+    <button class="btn btn-secondary" id="clearSig">Limpar</button>
+    <button class="btn btn-primary" id="saveSig">Salvar Assinatura</button>
+    <div id="savedSigns"></div>
   </section>
 
-  <script>
-    // Assinaturas
-    function adicionarAssinatura() {
-      const nome = document.getElementById('nome').value;
-      if(nome.trim() !== "") {
-        const lista = document.getElementById('lista-assinaturas');
-        const item = document.createElement('p');
-        item.textContent = "✍️ " + nome;
-        lista.appendChild(item);
-        document.getElementById('nome').value = "";
+  <!-- Caridade -->
+  <section class="section">
+    <h2>Caridade</h2>
+    <p>Se quiser no dinheiro, me entregue pessoalmente.<br>
+    Se for no Pix:</p>
+    <p><strong>Chave Pix:</strong> <span id="pixKey">145.944.939-80</span></p>
+    <button class="btn btn-primary" id="copyPix">COPIAR PIX</button>
+  </section>
+
+<script>
+  const addFileBtn=document.getElementById('addFileBtn');
+  const fileInput=document.getElementById('fileInput');
+  const uploads=document.getElementById('uploads');
+  const addMsgBtn=document.getElementById('addMsgBtn');
+  const msgBox=document.getElementById('msgBox');
+  const postMsgBtn=document.getElementById('postMsgBtn');
+  const msgText=document.getElementById('msgText');
+
+  // Abrir input arquivo
+  addFileBtn.addEventListener('click',()=>fileInput.click());
+
+  // Upload de arquivos
+  fileInput.addEventListener('change',()=>{
+    const file=fileInput.files[0];
+    if(!file)return;
+    const reader=new FileReader();
+    reader.onload=function(e){
+      const div=document.createElement('div');
+      div.className="upload-item";
+      if(file.type.startsWith('image')){
+        div.innerHTML=`<img src="${e.target.result}"><br><button class="remove-btn">Deletar</button>`;
+      } else if(file.type.startsWith('video')){
+        div.innerHTML=`<video src="${e.target.result}" controls></video><br><button class="remove-btn">Deletar</button>`;
       }
+      div.querySelector('.remove-btn').addEventListener('click',()=>div.remove());
+      uploads.prepend(div);
     }
+    reader.readAsDataURL(file);
+    fileInput.value="";
+  });
 
-    // Pix
-    function copiarPix() {
-      navigator.clipboard.writeText("145.944.939-80");
-      alert("Chave Pix copiada!");
-    }
+  // Mensagens
+  addMsgBtn.addEventListener('click',()=>msgBox.style.display=msgBox.style.display==='none'?'block':'none');
+  postMsgBtn.addEventListener('click',()=>{
+    if(msgText.value.trim()==="")return;
+    const div=document.createElement('div');
+    div.className="upload-item";
+    div.innerHTML=`<p>${msgText.value}</p><button class="remove-btn">Deletar</button>`;
+    div.querySelector('.remove-btn').addEventListener('click',()=>div.remove());
+    uploads.prepend(div);
+    msgText.value="";
+    msgBox.style.display="none";
+  });
 
-    // Pré-visualização de fotos/vídeos
-    const memoriaInput = document.getElementById('memoria');
-    const preview = document.getElementById('preview');
+  // Assinatura
+  const canvas=document.getElementById('sigCanvas');
+  const ctx=canvas.getContext('2d');
+  let drawing=false;
+  canvas.addEventListener('mousedown',e=>{drawing=true;ctx.moveTo(e.offsetX,e.offsetY)});
+  canvas.addEventListener('mousemove',e=>{
+    if(drawing){ctx.lineTo(e.offsetX,e.offsetY);ctx.stroke();}
+  });
+  canvas.addEventListener('mouseup',()=>drawing=false);
+  canvas.addEventListener('mouseleave',()=>drawing=false);
 
-    memoriaInput.addEventListener('change', () => {
-      preview.innerHTML = "";
-      Array.from(memoriaInput.files).forEach(file => {
-        const url = URL.createObjectURL(file);
-        let element;
-        if (file.type.startsWith("image/")) {
-          element = document.createElement("img");
-          element.src = url;
-        } else if (file.type.startsWith("video/")) {
-          element = document.createElement("video");
-          element.src = url;
-          element.controls = true;
-        }
-        element.style.maxWidth = "100%";
-        element.style.border = "2px solid #ffd700";
-        element.style.borderRadius = "10px";
-        element.style.marginTop = "10px";
-        preview.appendChild(element);
-      });
-    });
+  document.getElementById('clearSig').addEventListener('click',()=>ctx.clearRect(0,0,canvas.width,canvas.height));
+  document.getElementById('saveSig').addEventListener('click',()=>{
+    const name=document.getElementById('fullName').value;
+    if(!name){alert("Digite seu nome");return;}
+    const img=canvas.toDataURL();
+    const container=document.createElement('div');
+    container.className="upload-item";
+    container.innerHTML=`<p><strong>${name}</strong></p><img src="${img}" style="max-width:200px"><br><button class="remove-btn">Deletar</button>`;
+    container.querySelector('.remove-btn').addEventListener('click',()=>container.remove());
+    document.getElementById('savedSigns').appendChild(container);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+  });
 
-    // Abrir conversa no WhatsApp
-    function enviarWhatsApp() {
-      const numero = "5547997127698"; // formato internacional (55 = Brasil)
-      const mensagem = encodeURIComponent("Olá! Estou enviando minhas memórias da formatura 🎓✨");
-      window.open(`https://wa.me/${numero}?text=${mensagem}`, "_blank");
-    }
-  </script>
+  // Copiar Pix
+  document.getElementById('copyPix').addEventListener('click',()=>{
+    const pix=document.getElementById('pixKey').innerText;
+    navigator.clipboard.writeText(pix);
+    alert("Chave PIX copiada!");
+  });
+</script>
 </body>
 </html>
-
